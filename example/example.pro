@@ -5,6 +5,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++11
 
 DEFINES += LV_CONF_INCLUDE_SIMPLE
+DEFINES += LV_EX_CONF_INCLUDE_SIMPLE
 
 INCLUDEPATH += "../" \
                "../lvgl/" \
