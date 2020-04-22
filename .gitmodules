@@ -1,0 +1,8 @@
+[submodule "lvgl"]
+	path = lvgl
+	url = git@github.com:littlevgl/lvgl.git
+	branch = dev-7.0
+[submodule "lv_examples"]
+	path = lv_examples
+	url = git@github.com:littlevgl/lv_examples.git
+	branch = rework-7
