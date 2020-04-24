@@ -1,5 +1,5 @@
 # lvGLwidget
-QT openGL widget to use [LittlevGL!](https://github.com/littlevgl/lvgl)
+QT openGL widget to use [LittlevGL](https://github.com/littlevgl/lvgl)
 
 Implements a QOpenGLWidget based class to integrate LittlevGL into a QT application.
 
