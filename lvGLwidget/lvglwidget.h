@@ -5,7 +5,7 @@
 #include <QOpenGLWidget>
 #include <QOpenGLBuffer>
 #include <QElapsedTimer>
-#include <QLinkedList>
+#include <QList>
 #include <QTimer>
 #include <lvgl.h>
 
@@ -27,7 +27,7 @@ class LVGLwidget : public QOpenGLWidget
         QOpenGLBuffer * m_pPBO;
         QElapsedTimer * m_timerElapsed;
         QTimer * m_timerToRefresh;
-        QLinkedList<bool> m_mousePressEvents;
+        QList<bool> m_mousePressEvents;
 };
 
 #endif // LVGLWIDGET_H

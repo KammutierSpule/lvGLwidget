@@ -4,6 +4,8 @@
 #include <QMouseEvent>
 #include <algorithm>
 
+static QOpenGLFunctions_2_0 s_OGL;
+
 LVGLwidget::LVGLwidget(QWidget * parent): QOpenGLWidget(parent)
 {
     m_pPBO = NULL;
@@ -46,9 +48,8 @@ LVGLwidget::~LVGLwidget()
 
 void LVGLwidget::initializeGL()
 {
-    QOpenGLFunctions_2_0 * f = QOpenGLContext::currentContext()->versionFunctions<QOpenGLFunctions_2_0>();
-
-    f->glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+    s_OGL.initializeOpenGLFunctions();
+    s_OGL.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
 void LVGLwidget::resizeGL(int w, int h)
@@ -57,9 +58,7 @@ void LVGLwidget::resizeGL(int w, int h)
 
 void LVGLwidget::paintGL()
 {
-    QOpenGLFunctions_2_0 * f = QOpenGLContext::currentContext()->versionFunctions<QOpenGLFunctions_2_0>();
-
-    f->initializeOpenGLFunctions();
+    s_OGL.initializeOpenGLFunctions();
 
     if(m_pPBO == NULL) {
         m_pPBO = new QOpenGLBuffer(QOpenGLBuffer::Type::PixelUnpackBuffer);
@@ -70,7 +69,7 @@ void LVGLwidget::paintGL()
         m_pPBO->release();
     }
 
-    f->glClear(GL_COLOR_BUFFER_BIT);
+    s_OGL.glClear(GL_COLOR_BUFFER_BIT);
 
     m_pPBO->bind();
 
@@ -86,7 +85,7 @@ void LVGLwidget::paintGL()
 
     m_pPBO->unmap();
 
-    f->glDrawPixels(LV_HOR_RES_MAX, LV_VER_RES_MAX, GL_RGBA, GL_UNSIGNED_BYTE, 0);
+    s_OGL.glDrawPixels(LV_HOR_RES_MAX, LV_VER_RES_MAX, GL_RGBA, GL_UNSIGNED_BYTE, 0);
 
     m_pPBO->release();
 
