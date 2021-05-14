@@ -1,3 +1,6 @@
+// Copyright (c) 2020 Mario Luzeiro
+// MIT License
+
 #include "lvgl_wrap.h"
 #include <lvgl/lvgl.h>
 #include <lv_hal/lv_hal_disp.h>

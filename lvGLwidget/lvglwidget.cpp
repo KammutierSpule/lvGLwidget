@@ -1,3 +1,6 @@
+// Copyright (c) 2020 Mario Luzeiro
+// MIT License
+
 #include "lvglwidget.h"
 #include "lvgl_wrap.h"
 #include <QOpenGLFunctions_2_0>

@@ -1,3 +1,6 @@
+// Copyright (c) 2020 Mario Luzeiro
+// MIT License
+
 #ifndef LVGLWIDGET_H
 #define LVGLWIDGET_H
 
